@@ -1,0 +1,179 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    margin-top: 8px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'EB Garamond', serif; /* Default font for the body */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body covers the whole viewport height */
+    background-color: #ffffff;
+}
+
+/* Container for main content */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    transition: padding 0.3s;
+}
+
+header {
+    margin-bottom: 0;
+    transition: margin 0.3s;
+}
+
+header h1 {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'FZ-SG ZT Voltra', serif; /* Custom font for header */
+}
+
+/* Form styling */
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: margin 0.3s;
+    /* margin-bottom: 30px; */
+}
+
+.form input {
+    padding: 10px 0;
+    width: 100%;
+    max-width: 800px;
+    min-width: 400px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: #333;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.form input::placeholder {
+    font-style: italic;
+    color: #999;
+    opacity: 1;
+}
+
+.form input:focus {
+    outline: none;
+    border-bottom-color: #4a90e2;
+}
+
+/* Bell icon styling */
+.bell-icon {
+    width: 51px;
+    height: 51px;
+    cursor: pointer;
+    background-color: transparent; /* Remove any background color */
+    border: none; /* Remove any border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.bell-icon img {
+    width: 250%;
+    height: 250%;
+    object-fit: contain; /* Ensure the image fits perfectly */
+    border-radius: 50%; /* Make sure the image is circular */
+}
+
+.bell-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Styling for the bell icon in its clicked state */
+.bell-icon-clicked {
+    width: 51px;
+    height: 51px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+    transform: none; /* Disable hover transform effect */
+}
+
+.bell-icon-clicked img {
+    content: url('/static/icon/bell-icon-clicked.png');/* Change to your clicked icon image */
+    width: 250%;
+    height: 250%;
+    object-fit: contain; /* Ensure the image fits perfectly */
+    border-radius: 50%;
+}
+
+/* Disable hover effect for bell-icon-clicked */
+.bell-icon-clicked:hover {
+    transform: none; /* Prevent the icon from enlarging */
+}
+
+/* Response container styling */
+.response-container {
+    margin-top: 40px;
+    padding: 20px;
+    width: 66.67vw; /* Set width to 2/3 of the viewport width */
+    /* Alternatively, use 75vw for 3/4 of the viewport width */
+    background-color: rgba(245, 245, 245, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.response-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#response {
+    font-size: 22px;
+    color: #333;
+    font-family: 'EB Garamond', serif;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    font-family: 'EB Garamond', serif;
+    padding: 10px 0;
+    background-color: #ffffff;
+}
+
+/* Hidden class to hide elements */
+.hidden {
+    display: none;
+}
+
+#confirmation-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #4a90e2; /* Color for the confirmation message */
+    font-family: 'EB Garamond', serif;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#confirmation-message.visible {
+    opacity: 1;
+}
