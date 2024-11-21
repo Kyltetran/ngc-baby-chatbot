@@ -25,11 +25,18 @@ Hãy trả lời câu hỏi dựa vào thông tin trên: {question}, trích dẫ
 # load_dotenv()
 # print("Loaded API Key:", os.getenv("OPEN_API_KEY"))
 
-# Set the API key if not already set
-if "OPEN_API_KEY" not in os.environ:
-    os.environ["OPEN_API_KEY"] = getpass("Enter your Open API Key: ")
+from getpass import getpass
 
-print(os.environ["OPEN_API_KEY"])
+# Get the API key from the environment
+OPEN_API_KEY = os.environ.get("OPEN_API_KEY")
+
+# If not found, prompt the user to enter the key
+if not OPEN_API_KEY:
+    OPEN_API_KEY = getpass("Enter your Open API Key: ")
+    os.environ["OPEN_API_KEY"] = OPEN_API_KEY
+
+# Print the API key for debugging purposes (optional; avoid in production for security reasons)
+# print("API Key loaded successfully.")
 
 app = Flask(__name__)
 app.secret_key = '123456'
