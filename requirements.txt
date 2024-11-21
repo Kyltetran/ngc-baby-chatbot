@@ -8,14 +8,14 @@ asgiref==3.8.1
 attrs==24.2.0
 backoff==2.2.1
 bcrypt==4.2.0
-blinker @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/blinker_1699238202041/work
+blinker 
 build==1.2.2.post1
 cachetools==5.5.0
 certifi==2024.8.30
 charset-normalizer==3.4.0
 chroma-hnswlib==0.7.6
 chromadb==0.5.18
-click @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/click_1699237822453/work
+click 
 coloredlogs==15.0.1
 defusedxml==0.7.1
 Deprecated==1.2.14
@@ -23,7 +23,7 @@ distro==1.9.0
 durationpy==0.9
 fastapi==0.115.4
 filelock==3.16.1
-Flask @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_b6zka5i2cn/croot/flask_1716545886197/work
+Flask 
 flatbuffers==24.3.25
 frozenlist==1.5.0
 fsspec==2024.10.0
@@ -39,8 +39,8 @@ humanfriendly==10.0
 idna==3.10
 importlib_metadata==8.5.0
 importlib_resources==6.4.5
-itsdangerous @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_00jdi1gu23/croot/itsdangerous_1716533346702/work
-Jinja2 @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_b15nuwux5r/croot/jinja2_1730902833938/work
+itsdangerous 
+Jinja2 
 jiter==0.7.0
 jsonpatch==1.33
 jsonpointer==3.0.0
@@ -54,7 +54,7 @@ langchain-openai==0.2.6
 langchain-text-splitters==0.3.2
 langsmith==0.1.142
 markdown-it-py==3.0.0
-MarkupSafe @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/markupsafe_1707339878470/work
+MarkupSafe 
 mdurl==0.1.2
 mmh3==5.0.1
 monotonic==1.6
@@ -119,7 +119,7 @@ uvloop==0.21.0
 watchfiles==0.24.0
 websocket-client==1.8.0
 websockets==14.0
-Werkzeug @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_449rsfn878/croot/werkzeug_1731005768524/work
+Werkzeug 
 wheel==0.44.0
 wrapt==1.16.0
 yarl==1.17.1
