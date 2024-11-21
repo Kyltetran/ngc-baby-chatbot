@@ -9,7 +9,7 @@ import os
 load_dotenv()
 
 # Get the API key from the environment
-OPEN_API_KEY = os.getenv("OPEN_API_KEY")
+OPEN_API_KEY = os.getenv("OPEN_API_KEY_2")
 
 if not OPEN_API_KEY:
     raise ValueError("OPEN_API_KEY is not set in the environment.")
