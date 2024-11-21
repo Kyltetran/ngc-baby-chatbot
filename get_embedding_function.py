@@ -2,18 +2,18 @@
 from langchain_openai import OpenAIEmbeddings
 import os
 
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+import os
 
-# from getpass import getpass
+# Load environment variables from .env
+load_dotenv()
 
-# # Get the API key from the environment
-# OPEN_API_KEY = os.environ.get("OPEN_API_KEY")
+# Get the API key from the environment
+OPEN_API_KEY = os.getenv("OPEN_API_KEY")
 
-# # If not found, prompt the user to enter the key
-# if not OPEN_API_KEY:
-#     OPEN_API_KEY = getpass("Enter your Open API Key: ")
-#     os.environ["OPEN_API_KEY"] = OPEN_API_KEY
+if not OPEN_API_KEY:
+    raise ValueError("OPEN_API_KEY is not set in the environment.")
+print("API Key loaded successfully.")
 
 def get_embedding_function():
     # embeddings = OllamaEmbeddings(

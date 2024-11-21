@@ -21,22 +21,18 @@ Trả lời theo ngôn ngữ giống thông tin dưới đây:
 Hãy trả lời câu hỏi dựa vào thông tin trên: {question}, trích dẫn đúng thông tin từ dữ liệu trong câu trả lời (bao gồm tên tác giả, ngày xuất bản, số báo). Nếu không tìm được thông tin trong dữ liệu trên, ghi: "Thông tin không bao gồm, vui lòng thử lại". Nếu tìm được thông tin, hãy trả lời theo giọng văn của một cây viết nữ của báo Nữ giới chung ở năm 1918.
 """
 
-# from dotenv import load_dotenv
-# load_dotenv()
-# print("Loaded API Key:", os.getenv("OPEN_API_KEY"))
+from dotenv import load_dotenv
+import os
 
-from getpass import getpass
+# Load environment variables from .env
+load_dotenv()
 
-# # Get the API key from the environment
-# OPEN_API_KEY = os.environ.get("OPEN_API_KEY")
+# Get the API key from the environment
+OPEN_API_KEY = os.getenv("OPEN_API_KEY")
 
-# # If not found, prompt the user to enter the key
-# if not OPEN_API_KEY:
-#     OPEN_API_KEY = getpass("Enter your Open API Key: ")
-#     os.environ["OPEN_API_KEY"] = OPEN_API_KEY
-
-# Print the API key for debugging purposes (optional; avoid in production for security reasons)
-# print("API Key loaded successfully.")
+if not OPEN_API_KEY:
+    raise ValueError("OPEN_API_KEY is not set in the environment.")
+print("API Key loaded successfully.")
 
 app = Flask(__name__)
 app.secret_key = '123456'
