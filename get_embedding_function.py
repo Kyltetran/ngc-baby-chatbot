@@ -5,15 +5,15 @@ import os
 # from dotenv import load_dotenv
 # load_dotenv()
 
-from getpass import getpass
+# from getpass import getpass
 
-# Get the API key from the environment
-OPEN_API_KEY = os.environ.get("OPEN_API_KEY")
+# # Get the API key from the environment
+# OPEN_API_KEY = os.environ.get("OPEN_API_KEY")
 
-# If not found, prompt the user to enter the key
-if not OPEN_API_KEY:
-    OPEN_API_KEY = getpass("Enter your Open API Key: ")
-    os.environ["OPEN_API_KEY"] = OPEN_API_KEY
+# # If not found, prompt the user to enter the key
+# if not OPEN_API_KEY:
+#     OPEN_API_KEY = getpass("Enter your Open API Key: ")
+#     os.environ["OPEN_API_KEY"] = OPEN_API_KEY
 
 def get_embedding_function():
     # embeddings = OllamaEmbeddings(

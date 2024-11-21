@@ -27,13 +27,13 @@ Hãy trả lời câu hỏi dựa vào thông tin trên: {question}, trích dẫ
 
 from getpass import getpass
 
-# Get the API key from the environment
-OPEN_API_KEY = os.environ.get("OPEN_API_KEY")
+# # Get the API key from the environment
+# OPEN_API_KEY = os.environ.get("OPEN_API_KEY")
 
-# If not found, prompt the user to enter the key
-if not OPEN_API_KEY:
-    OPEN_API_KEY = getpass("Enter your Open API Key: ")
-    os.environ["OPEN_API_KEY"] = OPEN_API_KEY
+# # If not found, prompt the user to enter the key
+# if not OPEN_API_KEY:
+#     OPEN_API_KEY = getpass("Enter your Open API Key: ")
+#     os.environ["OPEN_API_KEY"] = OPEN_API_KEY
 
 # Print the API key for debugging purposes (optional; avoid in production for security reasons)
 # print("API Key loaded successfully.")
