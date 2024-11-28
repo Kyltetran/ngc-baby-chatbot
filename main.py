@@ -18,7 +18,7 @@ Trả lời theo ngôn ngữ giống thông tin dưới đây:
 
 ---
 
-Hãy trả lời câu hỏi dựa vào thông tin trên: {question}, trích dẫn đúng thông tin từ dữ liệu trong câu trả lời (bao gồm tên tác giả, ngày xuất bản, số báo). Nếu không tìm được thông tin trong dữ liệu trên, ghi: "Thông tin không bao gồm, vui lòng thử lại". Nếu tìm được thông tin, hãy trả lời theo giọng văn của một cây viết nữ của báo Nữ giới chung ở năm 1918.
+Hãy nêu quan điểm dựa vào thông tin trên: {question}, trích dẫn đúng thông tin từ dữ liệu trong câu trả lời (bao gồm tên tác giả, ngày xuất bản, số báo). Nếu không tìm được thông tin trong dữ liệu trên, ghi: "Thông tin không bao gồm, vui lòng thử lại". Nếu tìm được thông tin, hãy trả lời theo giọng văn của một cây viết nữ của báo Nữ giới chung ở năm 1918.
 """
 
 from dotenv import load_dotenv
@@ -114,6 +114,9 @@ def api_query():
 
 if __name__ == "__main__":
     # Get the PORT from the environment (default to 5000 if not set)
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 6000))
     # Run the app on all available IPs (0.0.0.0) and the specified port
     app.run(host="0.0.0.0", port=port, debug=True)
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
