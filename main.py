@@ -1,3 +1,5 @@
+from langchain_openai import OpenAIEmbeddings
+from dotenv import load_dotenv
 import argparse
 import os
 from getpass import getpass
@@ -21,8 +23,6 @@ Trả lời theo ngôn ngữ giống thông tin dưới đây:
 Hãy nêu quan điểm dựa vào thông tin trên: {question}, trích dẫn đúng thông tin từ dữ liệu trong câu trả lời (bao gồm tên tác giả, ngày xuất bản, số báo). Nếu không tìm được thông tin trong dữ liệu trên, ghi: "Thông tin không bao gồm, vui lòng thử lại". Nếu tìm được thông tin, hãy trả lời theo giọng văn của một cây viết nữ của báo Nữ giới chung ở năm 1918.
 """
 
-from dotenv import load_dotenv
-import os
 
 # Load environment variables from .env
 load_dotenv()
@@ -37,7 +37,6 @@ print("API Key loaded successfully.")
 app = Flask(__name__)
 app.secret_key = '123456'
 
-from langchain_openai import OpenAIEmbeddings
 
 def get_embedding_function():
     # embeddings = OllamaEmbeddings(
@@ -54,10 +53,10 @@ def get_embedding_function():
     print("API Key loaded successfully.")
 
     embeddings = OpenAIEmbeddings(
-            model="text-embedding-3-large",
-            # openai_api_key=api_key
-        )
-        # embeddings = OllamaEmbeddings(model="nomic-embed-text")0
+        model="text-embedding-3-large",
+        # openai_api_key=api_key
+    )
+    # embeddings = OllamaEmbeddings(model="nomic-embed-text")0
     return embeddings
 
 
@@ -68,6 +67,8 @@ def index():
     return render_template('index.html')
 
 # Define the API endpoint to handle queries
+
+
 @app.route('/api/query', methods=['POST'])
 def api_query():
     data = request.json
@@ -75,7 +76,8 @@ def api_query():
     print("Received query:", query_text)
 
     # Prepare the DB
-    db = Chroma(persist_directory=CHROMA_PATH, embedding_function=get_embedding_function())
+    db = Chroma(persist_directory=CHROMA_PATH,
+                embedding_function=get_embedding_function())
     print("Database initialized")
 
     # Search the DB
@@ -83,7 +85,8 @@ def api_query():
     print("Search results:", results)
 
     # Prepare the prompt and context
-    context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
+    context_text = "\n\n---\n\n".join(
+        [doc.page_content for doc, _score in results])
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
     prompt = prompt_template.format(context=context_text, question=query_text)
 
@@ -111,6 +114,7 @@ def api_query():
         # "sources": sources
     }
     return jsonify(response)
+
 
 if __name__ == "__main__":
     # Get the PORT from the environment (default to 5000 if not set)
