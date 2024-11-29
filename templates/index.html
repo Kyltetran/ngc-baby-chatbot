@@ -23,11 +23,13 @@
     <div class="container">
         <header>
             <h1 style="font-family: 'FZ-SG ZT Voltra', serif;">ĐỜN-BÀ</h1>
+            <!-- create a p with the style EB Garamond regular, font  -->
+            <h4 style="font-family: 'EB Garamond', serif;">Bạn muốn nói chuyện với đờn-bà nước Nam về hôn nhân, cách nuôi con, sự học, sự nghiệp? Hãy gióng chuông nữ giới!</h4>
         </header>
 
         <main>
             <form id="query-form" class="form">
-                <input type="text" id="query" name="query" placeholder="Nhập câu hỏi ở đây..." required style="font-family: 'EB Garamond', serif; font-style: italic;">
+                <input type="text" id="query" name="query" placeholder="Nhập câu hỏi của bạn cho đờn-bà ở đây và gióng chuông!" required style="font-family: 'EB Garamond', serif; font-style: italic;">
                 <button type="submit" class="bell-icon">
                     <img src="{{ url_for('static', filename='icon/bell-icon.png') }}" alt="Submit Icon">
                 </button>
