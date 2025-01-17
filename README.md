@@ -40,7 +40,7 @@ Chatbot này mang lại một công cụ tương tác thú vị cho:
 
 # Đờn-bà AI Chatbot
 
-The **Đờn-bà AI Chatbot** is an AI-powered chatbot designed to replicate the linguistic style and perspectives of female writers from *Nữ Giới Chung* (Women’s Bell), a Vietnamese newspaper from 1918. This project combines historical preservation with cutting-edge AI technology, ensuring accuracy, cultural context, and engaging interactions.
+The [**Đờn-bà AI Chatbot**](https://nghechuongnugioi.nghiencuuvietnam.com) is an AI-powered chatbot designed to replicate the linguistic style and perspectives of female writers from *Nữ Giới Chung* (Women’s Bell), a Vietnamese newspaper from 1918. This project combines historical preservation with cutting-edge AI technology, ensuring accuracy, cultural context, and engaging interactions.
 
 ## Key Features
 
