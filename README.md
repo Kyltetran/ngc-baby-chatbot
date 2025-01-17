@@ -1,4 +1,4 @@
-# Đờn-bà AI Chatbot
+# [Đờn-bà AI Chatbot]([url](https://nghechuongnugioi.nghiencuuvietnam.com))
 
 **Đờn-bà AI Chatbot** là một chatbot trí tuệ nhân tạo được thiết kế để tái hiện phong cách ngôn ngữ và quan điểm của các nữ nhà văn từ *Nữ Giới Chung* (Chuông Phụ Nữ), một tờ báo của Việt Nam từ năm 1918. Dự án này kết hợp việc bảo tồn lịch sử với công nghệ AI tiên tiến, đảm bảo tính chính xác, bối cảnh văn hóa và tương tác hấp dẫn.
 
