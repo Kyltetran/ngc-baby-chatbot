@@ -28,7 +28,7 @@ Hãy nêu quan điểm dựa vào thông tin trên: {question}, trích dẫn đ�
 load_dotenv()
 
 # Get the API key from the environment
-OPEN_API_KEY = os.getenv("OPEN_API_KEY_1")
+OPEN_API_KEY = os.getenv("OPEN_API_KEY")
 
 if not OPEN_API_KEY:
     raise ValueError("OPEN_API_KEY is not set in the environment.")
@@ -46,7 +46,7 @@ def get_embedding_function():
     # return embeddings
 
     # Get the API key from the environment
-    OPEN_API_KEY = os.getenv("OPEN_API_KEY_2")
+    OPEN_API_KEY = os.getenv("OPEN_API_KEY")
 
     if not OPEN_API_KEY:
         raise ValueError("OPEN_API_KEY is not set in the environment.")

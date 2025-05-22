@@ -8,8 +8,8 @@ from tqdm import tqdm
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
 from get_embedding_function import get_embedding_function
-# from langchain_community.vectorstores import Chroma
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import Chroma
+# from langchain_chroma import Chroma
 
 
 CHROMA_PATH = "chroma"
@@ -22,7 +22,8 @@ def main():
 
     # Check if the database should be cleared (using the --clear flag).
     parser = argparse.ArgumentParser()
-    parser.add_argument("--reset", action="store_true", help="Reset the database.")
+    parser.add_argument("--reset", action="store_true",
+                        help="Reset the database.")
     args = parser.parse_args()
     if args.reset:
         print("✨ Clearing Database")
@@ -49,17 +50,20 @@ def main():
 def load_documents():
     """Read all CSV files in the directory and convert them into a list of Document objects."""
     documents = []
-    
+
     for file_name in os.listdir(DATA_PATH):
         if file_name.endswith(".csv"):
             file_path = os.path.join(DATA_PATH, file_name)
-            df = pd.read_csv(file_path, delimiter=';', on_bad_lines='skip')  # Read CSV file
+            df = pd.read_csv(file_path, delimiter=';',
+                             on_bad_lines='skip')  # Read CSV file
             for _, row in df.iterrows():
                 # Create a Document for each row of the CSV
-                content = str(row.to_dict())  # Convert row to a dictionary and then to a string
-                document = Document(page_content=content, metadata={"source": file_name})
+                # Convert row to a dictionary and then to a string
+                content = str(row.to_dict())
+                document = Document(page_content=content,
+                                    metadata={"source": file_name})
                 documents.append(document)
-    
+
     return documents
 
 
@@ -102,7 +106,7 @@ def add_to_chroma(chunks: list[Document]):
         for chunk in tqdm(new_chunks, desc="Adding documents", unit="chunk"):
             chunk_id = chunk.metadata["id"]
             db.add_documents([chunk], ids=[chunk_id])
-        db.persist()
+        # db.persist()
     else:
         print("✅ No new documents to add")
 
