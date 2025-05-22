@@ -1,5 +1,8 @@
 # Đờn-bà AI Chatbot
 
+<img width="1331" alt="image" src="https://github.com/user-attachments/assets/678bb379-7f93-4f7c-bd3d-a80ce32dbe12" />
+
+
 [**Đờn-bà AI Chatbot**](https://nghechuongnugioi.nghiencuuvietnam.com) là một chatbot trí tuệ nhân tạo được thiết kế để tái hiện phong cách ngôn ngữ và quan điểm của các nữ nhà văn từ *Nữ Giới Chung* (Chuông Phụ Nữ), một tờ báo của Việt Nam từ năm 1918. Dự án này kết hợp việc bảo tồn lịch sử với công nghệ AI tiên tiến, đảm bảo tính chính xác, bối cảnh văn hóa và tương tác hấp dẫn.
 
 ## Tính năng nổi bật
@@ -39,6 +42,9 @@ Chatbot này mang lại một công cụ tương tác thú vị cho:
 ---
 
 # Đờn-bà AI Chatbot
+
+<img width="1331" alt="image" src="https://github.com/user-attachments/assets/1858807d-4113-41f3-9e79-a1501f956331" />
+
 
 The [**Đờn-bà AI Chatbot**](https://nghechuongnugioi.nghiencuuvietnam.com) is an AI-powered chatbot designed to replicate the linguistic style and perspectives of female writers from *Nữ Giới Chung* (Women’s Bell), a Vietnamese newspaper from 1918. This project combines historical preservation with cutting-edge AI technology, ensuring accuracy, cultural context, and engaging interactions.
 
