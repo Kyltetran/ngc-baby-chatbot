@@ -47,11 +47,10 @@ def api_query():
     return jsonify({"response": response_text})
 
 
-# if __name__ == "__main__":
-#     # Get the PORT from the environment (default to 5000 if not set)
-#     port = int(os.environ.get("PORT", 6000))
-#     # Run the app on all available IPs (0.0.0.0) and the specified port
-#     app.run(host="0.0.0.0", port=port, debug=True)
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
