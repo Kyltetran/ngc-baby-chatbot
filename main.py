@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, render_template, session
-from flask_cors import CORS
+# from flask_cors import CORS
 from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
@@ -8,7 +8,7 @@ import os
 
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 app.secret_key = '123456'
 
 CHROMA_PATH = "chroma"
