@@ -1,11 +1,14 @@
 from flask import Flask, jsonify, request, render_template, session
+from flask_cors import CORS
 from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from get_embedding_function import get_embedding_function
 import os
 
+
 app = Flask(__name__)
+CORS(app)
 app.secret_key = '123456'
 
 CHROMA_PATH = "chroma"
@@ -45,6 +48,15 @@ def api_query():
     response_text = model.invoke(prompt).content
 
     return jsonify({"response": response_text})
+
+
+# check server health
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({
+        "status": "healthy",
+        "message": "Server is running fine!",
+    }), 200
 
 
 # if __name__ == "__main__":
