@@ -43,10 +43,15 @@
         </main>
     </div>
 
+    <div id="typewriter-area"></div>
+
     <footer>
         <p style="font-family: 'EB Garamond', serif;">VSC - © 2024</p>
     </footer>
-    <script>
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
+    <!-- <script>
         document.getElementById("query-form").addEventListener("submit", async (event) => {
             event.preventDefault();
             console.log("Form submitted"); // Debugging line
@@ -54,80 +59,80 @@
         });
 
         async function fetchOpenAIResponse() {
-        const queryInput = document.getElementById("query");
-        const query = queryInput.value.trim();
-        const responseContainer = document.getElementById("response-container");
-        const responseElement = document.getElementById("response"); // Use the existing response element
+            const queryInput = document.getElementById("query");
+            const query = queryInput.value.trim();
+            const responseContainer = document.getElementById("response-container");
+            const responseElement = document.getElementById("response"); // Use the existing response element
 
-        // Clear the existing content and set up the question title
-        responseContainer.innerHTML = ""; 
+            // Clear the existing content and set up the question title
+            responseContainer.innerHTML = ""; 
 
-        const questionTitle = document.createElement("h2");
-        questionTitle.textContent = query;
-        questionTitle.style.textAlign = "center";
-        questionTitle.style.fontFamily = "'EB Garamond', serif";
-        responseContainer.appendChild(questionTitle);
+            const questionTitle = document.createElement("h2");
+            questionTitle.textContent = query;
+            questionTitle.style.textAlign = "center";
+            questionTitle.style.fontFamily = "'EB Garamond', serif";
+            responseContainer.appendChild(questionTitle);
 
-        responseElement.textContent = ""; // Clear the existing response text
-        responseElement.style.textAlign = "center"; // Center the response text
-        responseContainer.appendChild(responseElement); // Add the existing response element to the container
+            responseElement.textContent = ""; // Clear the existing response text
+            responseElement.style.textAlign = "center"; // Center the response text
+            responseContainer.appendChild(responseElement); // Add the existing response element to the container
 
-        const bellIcon = document.querySelector(".bell-icon");
+            const bellIcon = document.querySelector(".bell-icon");
 
-        // Disable the bell icon and change its class
-        bellIcon.disabled = true;
-        bellIcon.classList.add("bell-icon-clicked");
-        bellIcon.classList.remove("bell-icon");
+            // Disable the bell icon and change its class
+            bellIcon.disabled = true;
+            bellIcon.classList.add("bell-icon-clicked");
+            bellIcon.classList.remove("bell-icon");
 
-        console.log("Query:", query); // Debugging line
+            console.log("Query:", query); // Debugging line
 
-        // Remove the hidden class if it exists
-        responseContainer.classList.remove("hidden");
+            // Remove the hidden class if it exists
+            responseContainer.classList.remove("hidden");
 
-        if (!query) {
-            responseElement.textContent = "Please enter a question.";
-            responseContainer.classList.add("visible");
-            enableBellIcon(bellIcon); // Re-enable the bell icon
-            return;
-        }
-
-        try {
-            const response = await fetch("/api/query", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ query_text: query }),
-            });
-
-            console.log("Response status:", response.status); // Debugging line
-
-            if (!response.ok) {
-                throw new Error("Failed to fetch the response from the server.");
+            if (!query) {
+                responseElement.textContent = "Please enter a question.";
+                responseContainer.classList.add("visible");
+                enableBellIcon(bellIcon); // Re-enable the bell icon
+                return;
             }
 
-            const data = await response.json();
-            console.log("Response data:", data); // Debugging line
+            try {
+                const response = await fetch("/api/query", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ query_text: query }),
+                });
 
-            if (data.response) {
-                responseElement.textContent = data.response;
+                console.log("Response status:", response.status); // Debugging line
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch the response from the server.");
+                }
+
+                const data = await response.json();
+                console.log("Response data:", data); // Debugging line
+
+                if (data.response) {
+                    responseElement.textContent = data.response;
+                    responseContainer.classList.add("visible");
+                    console.log("Response displayed"); // Debugging line
+                } else {
+                    responseElement.textContent = "No response received.";
+                    responseContainer.classList.add("visible");
+                }
+
+                queryInput.value = ""; // Clear the input field
+
+            } catch (error) {
+                console.error("Error:", error); // Debugging line
+                responseElement.textContent = "An error occurred. Please try again.";
                 responseContainer.classList.add("visible");
-                console.log("Response displayed"); // Debugging line
-            } else {
-                responseElement.textContent = "No response received.";
-                responseContainer.classList.add("visible");
+            } finally {
+                enableBellIcon(bellIcon); // Re-enable the bell icon
             }
-
-            queryInput.value = ""; // Clear the input field
-
-        } catch (error) {
-            console.error("Error:", error); // Debugging line
-            responseElement.textContent = "An error occurred. Please try again.";
-            responseContainer.classList.add("visible");
-        } finally {
-            enableBellIcon(bellIcon); // Re-enable the bell icon
         }
-    }
 
         function enableBellIcon(bellIcon) {
             bellIcon.disabled = false;
@@ -135,6 +140,6 @@
             bellIcon.classList.remove("bell-icon-clicked");
         }
 
-    </script>
+    </script> -->
 </body>
 </html>

@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, render_template, session
+import pandas as pd
 # from flask_cors import CORS
 from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
@@ -59,10 +60,37 @@ def health_check():
     }), 200
 
 
+# read the file for animation purpose
+@app.route('/api/quotes', methods=['GET'])
+def get_quotes():
+    try:
+        # Load CSV file
+        df = pd.read_csv('data/Nữ Giới Chung_Datasheet - Sheet1.csv')
+
+        # Extract only the “Nội dung” column as a list of strings
+        if 'Nội dung' in df.columns:
+            contents = df['Nội dung'].dropna().tolist()
+        else:
+            # Fallback if no “Nội dung” column
+            contents = df.iloc[:, -1].dropna().tolist()
+
+        # Replace '\n' with spaces for smoother text
+        contents = [c.replace("\\n", " ").replace(
+            "\n", " ").strip() for c in contents]
+
+        # Return only first few lines (for animation)
+        return jsonify(contents[:10])
+
+    except Exception as e:
+        print("Error reading CSV:", e)
+        return jsonify([])
+
+
+# deploy
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 
-
+# run local
 # if __name__ == "__main__":
 #     app.run()

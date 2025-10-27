@@ -177,3 +177,41 @@ footer {
 #confirmation-message.visible {
     opacity: 1;
 }
+
+/* Individual scattered text lines */
+.typewriter-line {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    max-width: 300px; /* Limit width to force text wrapping */
+    text-align: left;
+    line-height: 1.6;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word;
+    z-index: -1; /* Place behind main content */
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+/* When typing animation is active */
+.typewriter {
+    /* border-right: 2px solid rgba(0, 0, 0, 0.4); */
+    animation: blink-caret 0.8s step-end infinite;
+}
+
+/* Make sure typewriter area is behind everything */
+#typewriter-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1; /* Behind all content */
+}
