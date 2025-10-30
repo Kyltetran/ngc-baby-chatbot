@@ -88,94 +88,94 @@ function enableBellIcon(bellIcon) {
 }
 
 // Typewriter animation - runs when page loads
-document.addEventListener("DOMContentLoaded", async () => {
-    const typewriterArea = document.getElementById("typewriter-area");
+// document.addEventListener("DOMContentLoaded", async () => {
+//     const typewriterArea = document.getElementById("typewriter-area");
 
-    // Fetch quotes from Flask API
-    let lines = [];
-    try {
-        const res = await fetch("/api/quotes");
-        lines = await res.json();
-        console.log("Fetched quotes:", lines.length);
-    } catch (err) {
-        console.error("Error fetching quotes:", err);
-    }
+//     // Fetch quotes from Flask API
+//     let lines = [];
+//     try {
+//         const res = await fetch("/api/quotes");
+//         lines = await res.json();
+//         console.log("Fetched quotes:", lines.length);
+//     } catch (err) {
+//         console.error("Error fetching quotes:", err);
+//     }
 
-    // Define 3 fixed regions for text blocks
-    const regions = [
-        { x: 50, y: 100, maxWidth: 300 },      // Top left
-        { x: window.innerWidth - 350, y: 150, maxWidth: 300 }, // Top right
-        { x: 100, y: window.innerHeight - 250, maxWidth: 320 }  // Bottom left
-    ];
+//     // Define 3 fixed regions for text blocks
+//     const regions = [
+//         { x: 50, y: 100, maxWidth: 300 },      // Top left
+//         { x: window.innerWidth - 350, y: 150, maxWidth: 300 }, // Top right
+//         { x: 100, y: window.innerHeight - 250, maxWidth: 320 }  // Bottom left
+//     ];
 
-    async function typewriterEffect(lineText, region) {
-        return new Promise(resolve => {
-            const el = document.createElement("div");
-            el.classList.add("typewriter-line");
-            el.textContent = "";
-            el.style.maxWidth = `${region.maxWidth}px`;
-            typewriterArea.appendChild(el);
+//     async function typewriterEffect(lineText, region) {
+//         return new Promise(resolve => {
+//             const el = document.createElement("div");
+//             el.classList.add("typewriter-line");
+//             el.textContent = "";
+//             el.style.maxWidth = `${region.maxWidth}px`;
+//             typewriterArea.appendChild(el);
 
-            // Position the element
-            el.style.left = `${region.x}px`;
-            el.style.top = `${region.y}px`;
+//             // Position the element
+//             el.style.left = `${region.x}px`;
+//             el.style.top = `${region.y}px`;
 
-            // Typewriter effect
-            let i = 0;
-            el.style.opacity = 1;
-            el.classList.add("typewriter");
-            const typingInterval = setInterval(() => {
-                if (i < lineText.length) {
-                    el.textContent += lineText.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(typingInterval);
-                    el.classList.remove("typewriter");
+//             // Typewriter effect
+//             let i = 0;
+//             el.style.opacity = 1;
+//             el.classList.add("typewriter");
+//             const typingInterval = setInterval(() => {
+//                 if (i < lineText.length) {
+//                     el.textContent += lineText.charAt(i);
+//                     i++;
+//                 } else {
+//                     clearInterval(typingInterval);
+//                     el.classList.remove("typewriter");
                     
-                    // Fade out after 3 seconds
-                    setTimeout(() => {
-                        el.style.opacity = 0;
-                        setTimeout(() => el.remove(), 1000);
-                    }, 3000);
+//                     // Fade out after 3 seconds
+//                     setTimeout(() => {
+//                         el.style.opacity = 0;
+//                         setTimeout(() => el.remove(), 1000);
+//                     }, 3000);
                     
-                    resolve();
-                }
-            }, 50); // Faster typing speed
-        });
-    }
+//                     resolve();
+//                 }
+//             }, 50); // Faster typing speed
+//         });
+//     }
 
-    async function startAnimation() {
-        let lineIndex = 0;
+//     async function startAnimation() {
+//         let lineIndex = 0;
         
-        // Animate 2-3 quotes at a time in different regions
-        while (lineIndex < Math.min(lines.length, 9)) {
-            const promises = [];
+//         // Animate 2-3 quotes at a time in different regions
+//         while (lineIndex < Math.min(lines.length, 9)) {
+//             const promises = [];
             
-            // Start 2-3 animations simultaneously in different regions
-            for (let i = 0; i < Math.min(3, regions.length); i++) {
-                if (lineIndex < lines.length) {
-                    const region = regions[i];
-                    promises.push(typewriterEffect(lines[lineIndex], region));
-                    lineIndex++;
-                }
-            }
+//             // Start 2-3 animations simultaneously in different regions
+//             for (let i = 0; i < Math.min(3, regions.length); i++) {
+//                 if (lineIndex < lines.length) {
+//                     const region = regions[i];
+//                     promises.push(typewriterEffect(lines[lineIndex], region));
+//                     lineIndex++;
+//                 }
+//             }
             
-            // Wait for all current animations to complete
-            await Promise.all(promises);
+//             // Wait for all current animations to complete
+//             await Promise.all(promises);
             
-            // Pause before next batch
-            await new Promise(res => setTimeout(res, 1500));
-        }
+//             // Pause before next batch
+//             await new Promise(res => setTimeout(res, 1500));
+//         }
         
-        // Loop the animation
-        setTimeout(() => {
-            if (lines.length > 0) {
-                startAnimation();
-            }
-        }, 2000);
-    }
+//         // Loop the animation
+//         setTimeout(() => {
+//             if (lines.length > 0) {
+//                 startAnimation();
+//             }
+//         }, 2000);
+//     }
 
-    if (lines.length > 0) {
-        startAnimation();
-    }
-});
+//     if (lines.length > 0) {
+//         startAnimation();
+//     }
+// });
